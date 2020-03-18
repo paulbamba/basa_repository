@@ -1,0 +1,18 @@
+@startuml
+
+actor Player
+rectangle Computer{
+Player - ("Type in the color of the words, and not the word text!" \n "Score:0" \n "Time Left:30")
+("Type in the color of the words, and not the word text!" \n "Score:0" \n "Time Left:30") --> (Press "Enter" to start game)
+(Press "Enter" to start game) --> ("Timer starts to countdown" \n "Computer generates different words of different colors")
+("Timer starts to countdown" \n "Computer generates different words of different colors") --> ("Player guesses the color of the word text")
+("Player guesses the color of the word text") -> ("A point is added to the score") :Correct
+("Player guesses the color of the word text") --> ("No point is added") :Wrong
+("A point is added to the score") --> ("The game displays a new random word")
+("The game displays a new random word") -> ("Player guesses the color of the word text")
+("No point is added") -> ("The game displays a new random word")
+("The game displays a new random word") --> ("When timer reaches zero; \n The game ends")
+("When timer reaches zero; \n The game ends") --> ("Your Final Score is displayed")
+}
+
+@enduml
